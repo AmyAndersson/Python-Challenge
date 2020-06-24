@@ -1,17 +1,9 @@
 #import and create path link
 import os
 import csv
-csvpath = os.path.join("..","Resources", "pyBanks_budget_data.csv")
 
-    #define the variables
-    # def Finacial_Analysis(Finance_data):
-    #     Date = str(Finance_Data[0])
-    #     profit_loss = int(Finance_data[1])
-
+budgetpath = os.path.join("..","Resources", "PyBanks_budget_data.csv")
     
-
-    #Print Finacial variable 
-
 
     #1. Count the lines within the csv
 
@@ -24,15 +16,46 @@ csvpath = os.path.join("..","Resources", "pyBanks_budget_data.csv")
     #find average of new change column to create a "average change"
 
     #open and read csv file
-with open(csvpath) as csvfile:
+with open(budgetpath) as csvfile:
       
-    csvreader = csv.reader(csvfile, delimiter=",")
-    header = next(csvreader)
-    print (f"CSV header: {header}")
-    row_count = sum(1 for row in csvreader)
-    print(f"Total Months: {row_count}")
+        #1  
+       Budget_csv = csv.reader(csvfile, delimiter=",")
+       header = next(Budget_csv)
+       #print (f"CSV header: {header}")
+       row_count = 0
+       Total = 0
+       TotalChange = 0
+       PreviousTotal = 0
+       MaxChange = 0
+       MinChange = 0
+
+       for row in Budget_csv:
+            Total = Total + int(row[1])
+            if row_count == 0:
+                change = int(row[1])
+                PreviousTotal = change
+            else:
+                change = int(row[1]) - PreviousTotal
+                TotalChange = TotalChange + change
+                PreviousTotal = int(row[1])
+                if change > MaxChange:
+                    MaxChange = change
+                    MaxDate = row[0]
+                if change < MinChange:
+                    MinChange = change
+                    MinDate = row[0]
+
+
+
+        
+            row_count = row_count + 1
+
+#totalchange = sum(change)
+averageChange = TotalChange / (row_count - 1)
+
+print(f"Total Months: {row_count}")
+print(f"Total:{Total}")
+print(f"Average Change: {averageChange}")
+print(f"Greatest increase in Profits on {MaxDate}: {MaxChange}")
+print(f"Greatest decrease in Profits on {MinDate}: {MinChange}")
     
-    profit_loss =0
-    for row in csvreader:
-        profit_loss = profit_loss + float(row[1])
-    print(profit_loss)
