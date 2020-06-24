@@ -18,29 +18,27 @@ with open(PyPollpath) as csvfile:
 
     print(header)
 
-    row_count = sum(1 for row in PyPollcsv)
+    candidate_list=[]
+    
 
-    print(row_count)   
-
- 
-
-    canidates=[] 
-
-    canidate_list = []
-
- 
-
-    for rows in PyPollcsv:
-
-        canidates.append(row[2])
-
-        #remove duplicates from list
-
-    canidates_list = list(set(canidates))
-
+    for row in PyPollcsv:
+        candidate_list.append(row[2])
+        #Khan_count = candidate_list.count("Khan")
+    print(len(candidate_list))
+    candidates = set(candidate_list)
+    print(len(candidates))
+    print(candidates)
+    print(Khan_count)
+    
+          
+        #if row[2] not in candidate:
+            #candidate.append(row[2])
+        #print(len(candidate))
+        #candidate_list.append(row[2])
         #[canidate_list.append(x) for x in canidates if x not in canidate_list]
-
-    print(canidates_list)
+    #candidate_list= list(set(candidate_list))
+    #print(candidate_list)
+    #print(candidate_list)
 
     
 
