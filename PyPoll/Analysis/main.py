@@ -79,16 +79,16 @@ output_path = os.path.join("..", "Results", "election_results.csv")
 
 with open(output_path, 'w', newline="") as csvfile:
     csvwriter = csv.writer(csvfile, delimiter=',')
-    csvwriter.writerow("Election Results")
-    csvwriter.writerow("-----------------------")
-    csvwriter.writerow(f"Total Votes: {total_votes}")
-    csvwriter.writerow("-----------------------")
-    csvwriter.writerow(f"Khan: {Kahn_percent}% ({Khan_count})")
-    csvwriter.writerow(f"Correy: {Correy_percent}% ({Correy_count})")
-    csvwriter.writerow(f"Li: {Li_percent}% ({Li_count})")
-    csvwriter.writerow(f"OTooley: {OTooley_percent}% ({OTooley_count})")
-    csvwriter.writerow("--------------------")
-    csvwriter.writerow(f"Winner: {winner}")
+    csvwriter.writerow(["Election Results"])
+    csvwriter.writerow(["-----------------------"])
+    csvwriter.writerow([f"Total Votes: {total_votes}"])
+    csvwriter.writerow(["-----------------------"])
+    csvwriter.writerow([f"Khan: {Kahn_percent}% ({Khan_count})"])
+    csvwriter.writerow([f"Correy: {Correy_percent}% ({Correy_count})"])
+    csvwriter.writerow([f"Li: {Li_percent}% ({Li_count})"])
+    csvwriter.writerow([f"OTooley: {OTooley_percent}% ({OTooley_count})"])
+    csvwriter.writerow(["--------------------"])
+    csvwriter.writerow([f"Winner: {winner}"])
     
 
  

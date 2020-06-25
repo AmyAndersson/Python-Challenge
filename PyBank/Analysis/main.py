@@ -55,11 +55,10 @@ output_path = os.path.join("..", "Results", "Financial Analysis.csv")
 
 with open(output_path, 'w', newline="") as csvfile:
     csvwriter = csv.writer(csvfile, delimiter=',')
-    csvwriter.writerow("Financial Analysis")
-    csvwriter.writerow("-----------------------")
-    csvwriter.writerow(f"Total:{Total}")
-    csvwriter.writerow(f"Average Change: ${averageChange}")
-    csvwriter.writerow(f"Greatest increase in Profits on {MaxDate}: (${MaxChange})")
-    csvwriter.writerow(f"Greatest decrease in Profits on {MinDate}: (${MinChange})")
+    csvwriter.writerow(["Financial Analysis"])
+    csvwriter.writerow([f"Total:{Total}"])
+    csvwriter.writerow([f"Average Change: ${averageChange}"])
+    csvwriter.writerow([f"Greatest increase in Profits on {MaxDate}: (${MaxChange})"])
+    csvwriter.writerow([f"Greatest decrease in Profits on {MinDate}: (${MinChange})"])
 
    
