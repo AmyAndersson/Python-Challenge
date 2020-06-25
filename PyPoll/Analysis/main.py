@@ -63,7 +63,7 @@ with open(PyPollpath) as csvfile:
     print(f"Khan: {Kahn_percent}% ({Khan_count})")
     print(f"Correy: {Correy_percent}% ({Correy_count})")
     print(f"Li: {Li_percent}% ({Li_count})")
-    print(f"Khan: {Li_percent}% ({Li_count})")
+    print(f"OTooley: {OTooley_percent}% ({OTooley_count})")
     print("--------------------")
     print(f"Winner: {winner}")
     
@@ -75,7 +75,20 @@ with open(PyPollpath) as csvfile:
     #candidate_list= list(set(candidate_list))
     #print(candidate_list)
     #print(candidate_list)
+output_path = os.path.join("..", "Results", "election_results.csv")
 
+with open(output_path, 'w', newline="") as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=',')
+    csvwriter.writerow("Election Results")
+    csvwriter.writerow("-----------------------")
+    csvwriter.writerow(f"Total Votes: {total_votes}")
+    csvwriter.writerow("-----------------------")
+    csvwriter.writerow(f"Khan: {Kahn_percent}% ({Khan_count})")
+    csvwriter.writerow(f"Correy: {Correy_percent}% ({Correy_count})")
+    csvwriter.writerow(f"Li: {Li_percent}% ({Li_count})")
+    csvwriter.writerow(f"OTooley: {OTooley_percent}% ({OTooley_count})")
+    csvwriter.writerow("--------------------")
+    csvwriter.writerow(f"Winner: {winner}")
     
 
  
